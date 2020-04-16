@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: session-affinity-demo
+  labels:
+    app: session-affinity-demo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: session-affinity-demo
+  template:
+    metadata:
+      labels:
+        app: session-affinity-demo
+    spec:
+      containers:
+      - name: session-affinity-demo
+        image: docker.io/jpfielding/sticky:latest
